@@ -1,6 +1,6 @@
 const initialState = {
   searchResults: [],
-  list: [],
+  myList: [],
 };
 
 export default initialState;

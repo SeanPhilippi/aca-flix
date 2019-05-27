@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./App.css";
 import Logo from "./Logo.js";
@@ -7,12 +7,13 @@ import Hero from "./components/Hero";
 import SearchBoxContainer from "./containers/SearchBoxContainer";
 import Nav from "./components/Nav";
 import UserProfile from "./components/UserProfile";
-import { loadList } from "./actions/actions";
 
 class App extends Component {
 
   componentDidMount() {
-    loadList();
+    this.props.loadList();
+    console.log('list', this.props.myList);
+    console.log('results', this.props.searchResults)
   }
 
   render() {
@@ -51,15 +52,15 @@ class App extends Component {
           movies={this.props.searchResults} />
         <TitleList
           title="My Movies"
-          movies={this.props.myMovieList} />
+          movies={this.props.myList} />
       </div>
     );
   }
 }
 
 App.propTypes = {
-  searchResults: PropTypes.func.isRequired,
-  myList: PropTypes.func.isRequired,
+  searchResults: PropTypes.array.isRequired,
+  myList: PropTypes.array.isRequired,
 }
 
 export default App;

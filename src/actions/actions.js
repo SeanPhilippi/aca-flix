@@ -18,11 +18,12 @@ export const searchLoaded = movies => ({
   payload: movies.results
 })
 
-export const loadSearch = () => dispatch => {
+export const loadSearch = searchText => dispatch => {
   // type: 'LOAD_SEARCH',
-  fetch('https://api.themoviedb.org/3/search/multi?query=searchTerm&api_key=db0fb828044fb9954101dd9eef659794')
+  fetch(`https://api.themoviedb.org/3/search/multi?query=${searchText}&api_key=db0fb828044fb9954101dd9eef659794`)
     .then(res => res.json())
     .then(movies => {
+      console.log('movies in loadSearch', movies)
       dispatch(searchLoaded(movies))
     })
     .catch(err => console.error(err));
@@ -33,6 +34,7 @@ export const saveMovie = movie => dispatch => {
   // * not sure stringify is necessary
   fetch('/movies', {
     method: 'post',
+    headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(movie)
   }).then((res) => {
     dispatch(loadList(res));
@@ -40,8 +42,9 @@ export const saveMovie = movie => dispatch => {
 }
 
 export const removeMovie = id => dispatch => {
-  fetch('/movies', {
+  fetch(`/movies/${id}`, {
     method: 'delete',
+    headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(id)
   }).then((res) => {
     dispatch(loadList(res));

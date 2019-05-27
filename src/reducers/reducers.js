@@ -3,9 +3,15 @@ import initialState from '../state.js';
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case 'LIST_LOADED':
-      return action.payload;
+      return {
+        ...state,
+        myList: action.payload
+      }
     case 'SEARCH_RESULTS_LOADED':
-      return action.payload;
+      return {
+        ...state,
+        searchResults: action.payload
+      }
     default:
       return state;
   }

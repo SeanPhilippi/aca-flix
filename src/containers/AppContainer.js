@@ -4,7 +4,7 @@ import { loadList } from '../actions/actions.js';
 
 const mapStateToProps = state => ({
   searchResults: state.searchResults,
-  myMovieList: state.myMovieList
+  myList: state.myList
 })
 const mapDispatchToProps = dispatch => ({
   loadList: () => dispatch(loadList())
