@@ -1,3 +1,4 @@
-export default {
- 
+export default initialState = {
+  searchResults = [],
+  list = [],
 };
