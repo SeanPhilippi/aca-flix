@@ -9,9 +9,7 @@ class SearchBox extends Component {
   }
 
   onTextChange = e => {
-    console.log('text changes!')
     this.setState({searchText: e.target.value});
-    console.log('text in state', this.state.searchText)
   }
 
   render() {

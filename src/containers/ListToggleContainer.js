@@ -4,7 +4,7 @@ import { saveMovie, removeMovie } from '../actions/actions.js';
 
 const mapDispatchToProps = dispatch => ({
   saveMovie : movie => dispatch(saveMovie(movie)),
-  removeMove: id => dispatch(removeMovie(id))
+  removeMovie: id => dispatch(removeMovie(id))
 })
 
 export default connect(null, mapDispatchToProps)(ListToggle);

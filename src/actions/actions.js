@@ -30,8 +30,6 @@ export const loadSearch = searchText => dispatch => {
 }
 
 export const saveMovie = movie => dispatch => {
-  // * console.log this, will probably need some rearranging,
-  // * not sure stringify is necessary
   fetch('/movies', {
     method: 'post',
     headers: {'Content-Type': 'application/json'},
@@ -44,8 +42,7 @@ export const saveMovie = movie => dispatch => {
 export const removeMovie = id => dispatch => {
   fetch(`/movies/${id}`, {
     method: 'delete',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(id)
+    headers: {'Content-Type': 'application/json'}
   }).then((res) => {
     dispatch(loadList(res));
   })
