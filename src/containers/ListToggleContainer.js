@@ -1,6 +1,6 @@
 import ListToggle from '../components/ListToggle';
 import { connect } from 'react-redux';
-import { saveMovie, removeMovie } from '../actions/index';
+import { saveMovie, removeMovie } from '../actions/actions.js';
 
 const mapDispatchToProps = dispatch => ({
   saveMovie : movie => dispatch(saveMovie(movie)),

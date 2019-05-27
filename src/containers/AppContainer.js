@@ -1,5 +1,6 @@
-import App from '../components/App.js';
-import { loadList } from '../actions';
+import App from '../App.js';
+import { connect } from 'react-redux';
+import { loadList } from '../actions/actions.js';
 
 const mapStateToProps = state => ({
   searchResults: state.searchResults,

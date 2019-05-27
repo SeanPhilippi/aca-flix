@@ -32,6 +32,7 @@ class App extends Component {
               </nav>
             </div>
           </Nav>
+          <div>some text</div>
           <SearchBoxContainer />
           <UserProfile>
             <div className="UserProfile">
@@ -57,8 +58,8 @@ class App extends Component {
 }
 
 App.propTypes = {
-  searchResults: propTypes.func.isRequired,
-  myList: propTypes.func.isRequired,
+  searchResults: PropTypes.func.isRequired,
+  myList: PropTypes.func.isRequired,
 }
 
 export default App;

@@ -1,4 +1,9 @@
-export const loadList = () => (dispatch, getState) => {
+export const listLoaded = movies => ({
+  type: 'LIST_LOADED',
+  payload: movies
+})
+
+export const loadList = () => dispatch => {
   // type: 'LOAD_LIST',
   fetch('movies')
     .then(res => res.json())
@@ -8,25 +13,20 @@ export const loadList = () => (dispatch, getState) => {
     .catch(err => console.error(err));
 }
 
-export const listLoaded = () => ({
-  type: 'LIST_LOADED',
-  payload: movies
+export const searchLoaded = movies => ({
+  type: 'SEARCH_RESULTS_LOADED',
+  payload: movies.results
 })
 
-export const loadSearch = () => (dispatch, getState) => {
+export const loadSearch = () => dispatch => {
   // type: 'LOAD_SEARCH',
-  fetch('https://api.themoviedb.org/3/search/multi?query=searchTerm&api_key=yourkey')
+  fetch('https://api.themoviedb.org/3/search/multi?query=searchTerm&api_key=db0fb828044fb9954101dd9eef659794')
     .then(res => res.json())
     .then(movies => {
       dispatch(searchLoaded(movies))
     })
     .catch(err => console.error(err));
 }
-
-export const searchLoaded = () => ({
-  type: 'SEARCH_RESULTS_LOADED',
-  payload: movies.results
-})
 
 export const saveMovie = movie => dispatch => {
   // * console.log this, will probably need some rearranging,
