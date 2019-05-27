@@ -14,7 +14,7 @@ class App extends Component {
       <div>
         <header className="Header">
           <Logo />
-          <Navigation>
+          <Nav>
             <div id="navigation" className="Navigation">
               <nav>
                 <ul>
@@ -25,7 +25,7 @@ class App extends Component {
                 </ul>
               </nav>
             </div>
-          </Navigation>
+          </Nav>
           <SearchBox />
           <UserProfile>
             <div className="UserProfile">
@@ -49,4 +49,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;
