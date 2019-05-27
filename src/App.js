@@ -4,11 +4,17 @@ import "./App.css";
 import Logo from "./Logo.js";
 import TitleList from "./components/TitleList";
 import Hero from "./components/Hero";
-import SearchBox from "./components/SearchBox";
+import SearchBoxContainer from "./containers/SearchBoxContainer";
 import Nav from "./components/Nav";
 import UserProfile from "./components/UserProfile";
+import { loadList } from "./actions/actions";
 
 class App extends Component {
+
+  componentDidMount() {
+    loadList();
+  }
+
   render() {
     return (
       <div>
@@ -26,7 +32,7 @@ class App extends Component {
               </nav>
             </div>
           </Nav>
-          <SearchBox />
+          <SearchBoxContainer />
           <UserProfile>
             <div className="UserProfile">
               <div className="User">
@@ -48,6 +54,11 @@ class App extends Component {
       </div>
     );
   }
+}
+
+App.propTypes = {
+  searchResults: propTypes.func.isRequired,
+  myList: propTypes.func.isRequired,
 }
 
 export default App;

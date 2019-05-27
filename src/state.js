@@ -1,4 +1,6 @@
-export default initialState = {
+const initialState = {
   searchResults: [],
   list: [],
 };
+
+export default initialState;
