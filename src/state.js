@@ -1,4 +1,4 @@
 export default initialState = {
-  searchResults = [],
-  list = [],
+  searchResults: [],
+  list: [],
 };
